@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://biteradigital.com/sitemap.xml

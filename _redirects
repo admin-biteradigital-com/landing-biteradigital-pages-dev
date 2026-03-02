@@ -1,0 +1,2 @@
+# Redirigir www al apex
+https://www.biteradigital.com/* https://biteradigital.com/:splat 301
