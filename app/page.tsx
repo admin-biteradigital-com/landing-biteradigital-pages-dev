@@ -1,11 +1,11 @@
-import GridBackground    from "./components/GridBackground";
-import Nav              from "./components/Nav";
-import Hero             from "./components/Hero";
-import Services         from "./components/Services";
-import WhyBitera        from "./components/WhyBitera";
-import Certifications   from "./components/Certifications";
-import CTAFinal         from "./components/CTAFinal";
-import Footer           from "./components/Footer";
+import GridBackground    from "@/components/GridBackground";
+import Nav              from "@/components/Nav";
+import Hero             from "@/components/Hero";
+import Services         from "@/components/Services";
+import WhyBitera        from "@/components/WhyBitera";
+import Certifications   from "@/components/Certifications";
+import CTAFinal         from "@/components/CTAFinal";
+import Footer           from "@/components/Footer";
 
 export default function Home() {
   return (
