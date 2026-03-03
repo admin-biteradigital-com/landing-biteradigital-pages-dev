@@ -1,10 +1,41 @@
 /*
+  # ─── Seguridad global (todas las rutas) ─────────────────────────────
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()
-  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-src https://calendar.app.google; base-uri 'self'; upgrade-insecure-requests; block-all-mixed-content
+  X-XSS-Protection: 0
+  X-DNS-Prefetch-Control: off
+
+  # Permissions Policy — deshabilitar APIs de sensor/pago/geolocalización
+  Permissions-Policy: accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()
+
+  # CSP — sin unsafe-inline en scripts; hash inline permitido para JSON-LD
+  # El hash SHA-256 cubre el script JSON-LD estático del layout
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-src https://calendar.app.google; manifest-src 'self'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests; block-all-mixed-content
+
+  # CORS / Aislamiento de origen
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
-  X-XSS-Protection: 0
+  Cross-Origin-Embedder-Policy: unsafe-none
+
+  # Cache global por defecto (HTML no inmutable)
+  Cache-Control: public, max-age=0, must-revalidate
+
+# ─── Assets de Next.js — cache inmutable (hash en nombre de archivo) ──
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ─── Assets estáticos propios ─────────────────────────────────────────
+/favicon.svg
+  Cache-Control: public, max-age=86400
+/favicon.ico
+  Cache-Control: public, max-age=86400
+/og.png
+  Cache-Control: public, max-age=86400
+/manifest.json
+  Cache-Control: public, max-age=86400
+/robots.txt
+  Cache-Control: public, max-age=3600
+/sitemap.xml
+  Cache-Control: public, max-age=3600

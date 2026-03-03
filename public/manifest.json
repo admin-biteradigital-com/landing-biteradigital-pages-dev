@@ -1,0 +1,30 @@
+{
+    "name": "Bitera Digital",
+    "short_name": "Bitera",
+    "description": "Infraestructura Soberana · Zero Trust · Uruguay. IaaS, PaaS y SaaS con certificación multinorma ISO 27001, ISO 22301 e ISO 9001.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#04090F",
+    "theme_color": "#04090F",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "es-UY",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/og.png",
+            "sizes": "1200x630",
+            "type": "image/png"
+        }
+    ],
+    "categories": [
+        "business",
+        "technology"
+    ],
+    "related_applications": []
+}

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Syne, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 /* ── Fuentes ─────────────────────────────────────────────── */
@@ -14,6 +14,13 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
   variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -41,6 +48,12 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   openGraph: {
     type: "website",
@@ -68,6 +81,15 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://biteradigital.com",
+  },
+  manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/og.png", sizes: "1200x630" },
+    ],
   },
 };
 
@@ -114,6 +136,10 @@ const jsonLd = {
       "@type": "EducationalOccupationalCredential",
       name: "ISO 9001:2015",
     },
+    {
+      "@type": "EducationalOccupationalCredential",
+      name: "ISO/IEC 27701",
+    },
   ],
 };
 
@@ -124,8 +150,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${syne.variable} ${dmSans.variable}`}>
+    <html lang="es" className={`${syne.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}>
       <head>
+        {/* Preconnect para Google Fonts — reduce latencia de primer byte */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* JSON-LD Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

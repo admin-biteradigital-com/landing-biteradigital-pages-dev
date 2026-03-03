@@ -9,9 +9,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Headers de seguridad — se complementan con public/_headers
-  // (en SSG export los headers de next.config no se aplican en runtime,
-  // Cloudflare Pages los lee desde public/_headers)
+  // Elimina X-Powered-By: Next.js (no aplica información de stack en producción)
+  poweredByHeader: false,
+  // React Strict Mode — detecta efectos secundarios involuntarios
+  reactStrictMode: true,
 };
 
 export default nextConfig;
