@@ -10,9 +10,8 @@
   # Permissions Policy — deshabilitar APIs de sensor/pago/geolocalización
   Permissions-Policy: accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()
 
-  # CSP — sin unsafe-inline en scripts; hash inline permitido para JSON-LD
-  # El hash SHA-256 cubre el script JSON-LD estático del layout
-  Content-Security-Policy: default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-src https://calendar.app.google; manifest-src 'self'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests; block-all-mixed-content
+  # CSP — sin unsafe-inline; sha256 cubre el JSON-LD estático del layout
+  Content-Security-Policy: default-src 'none'; script-src 'self' 'sha256-oJN1nfShOdEKn+oHhXuDJZIp3zVwIZ6ahROtQr1pEYA='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-src https://calendar.app.google; manifest-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests; block-all-mixed-content
 
   # CORS / Aislamiento de origen
   Cross-Origin-Opener-Policy: same-origin

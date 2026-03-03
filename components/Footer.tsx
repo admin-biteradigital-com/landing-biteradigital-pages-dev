@@ -1,10 +1,10 @@
 const YEAR = new Date().getFullYear();
 
 const LINKS = [
-  { label: "Servicios",       href: "#servicios"       },
-  { label: "Por qué Bitera",  href: "#diferenciadores" },
-  { label: "ISO",             href: "#certificaciones" },
-  { label: "Contacto",        href: "#contacto"        },
+  { label: "Servicios", href: "#servicios" },
+  { label: "Por qué Bitera", href: "#diferenciadores" },
+  { label: "ISO", href: "#certificaciones" },
+  { label: "Contacto", href: "#contacto" },
 ];
 
 export default function Footer() {
@@ -21,8 +21,8 @@ export default function Footer() {
         </div>
 
         {/* Meta */}
-        <p className="font-mono text-[.6rem] tracking-[.08em] text-[var(--textd)] text-center leading-[1.7]">
-          © {YEAR} Bitera Digital · Zelmar Tiago Velazquez Borges · Montevideo, Uruguay<br />
+        <p className="font-mono text-[.6rem] tracking-[.08em] text-[var(--textm)] text-center leading-[1.7]">
+          © {YEAR} Bitera Digital · Zelmar T. Velazquez · Canelones, Uruguay<br />
           ISO 27001 · ISO 22301 · ISO 9001 · ISO 27701 · GDPR · Ley 18.331
         </p>
 
@@ -33,7 +33,7 @@ export default function Footer() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="font-mono text-[.62rem] tracking-[.06em] text-[var(--textd)] hover:text-[var(--cyan)] transition-colors"
+                  className="font-mono text-[.62rem] tracking-[.06em] text-[var(--textm)] hover:text-[var(--cyan)] transition-colors"
                 >
                   {l.label}
                 </a>

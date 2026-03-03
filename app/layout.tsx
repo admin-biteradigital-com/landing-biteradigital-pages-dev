@@ -111,7 +111,7 @@ const jsonLd = {
   address: {
     "@type": "PostalAddress",
     addressCountry: "UY",
-    addressLocality: "Montevideo",
+    addressLocality: "Canelones",
   },
   founder: {
     "@type": "Person",
